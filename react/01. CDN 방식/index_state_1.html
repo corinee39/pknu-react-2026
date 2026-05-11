@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>React CDN 실습 환경</title>
+
+    <!-- React 18 CDN (브라우저에서 직접 실행용) -->
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+
+    <!-- Babel: JSX 를 브라우저에서 실행할 수 있도록 컴파일하기 -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="text/babel">
+      const { useState } = React;
+
+      // --- Counter 컴포넌트 (음수 방지 기능 추가) ---
+      // count가 0 이하면 감소 버튼은 동작하지 않습니다.
+      const Counter = ({ count, setCount }) => {
+        // count 가 음수가 될지 확인
+        const canDecrease = count > 0;
+
+        return (
+          <div className="card">
+            <h2>Counter</h2>
+            <p>현재값: {count}</p>
+            <hr />
+            <button onClick={() => setCount(count + 1)}>1 증가</button>
+            <button
+              onClick={() => setCount(count - 1)}
+              disabled={!canDecrease}
+            >
+              1 감소
+            </button>
+            <p style={{ fontSize: '0.8em', color: 'gray' }}>
+              {count === 0 ? "최소값 (0) 에 도달했습니다." : ""}
+            </p>
+          </div>
+        );
+      };
+
+      // --- App 컴포넌트 ---
+      const App = () => {
+        const [count, setCount] = useState(0);
+        const [text, setText] = useState("안녕");
+
+        return (
+          <main>
+            <h1>JSX와 useState</h1>
+            <p>버튼을 누르면 상태가 바뀐다. 화면이 다시 렌더링된다.</p>
+
+            {/* Counter 컴포넌트를 사용 */}
+            <Counter count={count} setCount={setCount} />
+
+            <h2>현재값: {text}</h2>
+            <hr />
+            <button onClick={() => setText(text + "하세요.")}>존대</button>
+            <button onClick={() => setText("어라?")}>어라 버튼</button>
+          </main>
+        );
+      };
+
+      ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+    </script>
+  </body>
+</html>
