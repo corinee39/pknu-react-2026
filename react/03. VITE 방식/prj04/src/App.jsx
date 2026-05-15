@@ -9,8 +9,6 @@ import Ex04 from "./pages/Ex04";
 import Ex05 from "./pages/Ex05";
 import Ex06 from "./pages/Ex06";
 import Ex07 from "./pages/Ex07";
-import Ex08 from "./pages/Ex08";
-import Ex09 from "./pages/Ex09";
 
 function App() {
   return (
@@ -19,7 +17,6 @@ function App() {
       <Link to="/ex02">예제2</Link> | <Link to="/ex03">예제3</Link> |{" "}
       <Link to="/ex04">예제4</Link> | <Link to="/ex05">예제5</Link> |{" "}
       <Link to="/ex06">예제6</Link> | <Link to="/ex07">예제7</Link> |{" "}
-      <Link to="/ex08">예제8</Link> | <Link to="/ex09">예제9</Link> |{" "}
       <Routes>
         <Route path="/" element={<Home />}></Route>
         <Route path="/ex01" element={<Ex01 />}></Route>
@@ -29,8 +26,6 @@ function App() {
         <Route path="/ex05" element={<Ex05 />}></Route>
         <Route path="/ex06" element={<Ex06 />}></Route>
         <Route path="/ex07" element={<Ex07 />}></Route>
-        <Route path="/ex08" element={<Ex08 />}></Route>
-        <Route path="/ex09" element={<Ex09 />}></Route>
       </Routes>
     </>
   );
