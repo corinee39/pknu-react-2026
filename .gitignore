@@ -1,2 +1,3 @@
 /.clinerules
 /sandbox
+docker/dev_nodejs/node_modules

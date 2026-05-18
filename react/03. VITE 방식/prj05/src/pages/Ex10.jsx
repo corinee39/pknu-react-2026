@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import "./Ex10.css";
 
 function Ex10() {
   const [inData, setIndata] = useState("");
@@ -15,7 +16,7 @@ function Ex10() {
 
   // arr 값이 바뀔 때마다 localStorage에 저장
   useEffect(() => {
-    localStorage.getItem("todos", JSON.stringify(arr));
+    localStorage.setItem("todos", JSON.stringify(arr));
   }, [arr]);
 
   const handleInput = (e) => setIndata(e.target.value);
@@ -62,12 +63,6 @@ function Ex10() {
     setArr(newArr);
   };
 
-  // 개별 삭제
-  const handleRemove = (id) => {
-    const newArr = arr.filter((todo) => todo.id !== id);
-    setArr(newArr);
-  };
-
   return (
     <div className="todo-wrap">
       <h1>10. TodoList 만들기</h1>
@@ -106,23 +101,16 @@ function Ex10() {
                 <span className={todo.done ? "done" : ""}>
                   {i + 1}. {todo.text}
                 </span>
-
-                <button
-                  className="delete-btn"
-                  onClick={() => handleRemove(todo.id)}
-                >
-                  삭제
-                </button>
               </div>
             );
           })
         )}
       </div>
-      <pre>{`도전사항:
+      {/* <pre>{`도전사항:
 1. 엔터로 입력 가능 - 완료
 2. CSS 꾸미기 - 완료
 3. 체크박스로 완료는 줄긋기 - 완료
-4. localStorage에 저장/읽기 기능을 넣어서 새로고침시에도 삭제되지 않게 하기 - 완료`}</pre>
+4. localStorage에 저장/읽기 기능을 넣어서 새로고침시에도 삭제되지 않게 하기 - 완료`}</pre> */}
     </div>
   );
 }

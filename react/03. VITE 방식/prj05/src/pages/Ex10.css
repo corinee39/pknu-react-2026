@@ -75,25 +75,16 @@
   color: #999;
 }
 
-.delete-btn {
-  padding: 6px 10px;
-  border: none;
-  border-radius: 6px;
-  background-color: #ef4444;
-  color: white;
-  cursor: pointer;
-}
-
 .empty {
   text-align: center;
   color: #777;
 }
 
-pre {
+/* pre {
   margin-top: 24px;
   padding: 16px;
   background-color: #111827;
   color: #e5e7eb;
   border-radius: 12px;
   white-space: pre-wrap;
-}
+} */
